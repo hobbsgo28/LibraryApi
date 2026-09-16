@@ -116,3 +116,28 @@ pre{ /*used to keep the whitespace in the footer text */
   color: #0a3323;
   font: 15px "Delius Unicase", "Arial";
 }
+
+table {
+    overflow-x: auto;
+    display: flex; 
+    align-items: center; 
+    justify-content: center; 
+    /* background-color: white;
+    border-radius: 5px; */
+}
+
+th {
+    background-color:burlywood;
+    border: 2px solid black; 
+    padding: 10px 30px 10px 30px;
+    text-align: center;
+    border-radius: 5px;
+} 
+td {
+    background-color: rgb(165, 195, 205); 
+    border: 2px solid black;
+    padding: 10px 30px 10px 30px;
+    text-align: center; 
+    border-radius: 5px;
+
+}

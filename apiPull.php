@@ -1,5 +1,6 @@
 
 <head>  
+    <?php include("fonts.php"); ?>   
     <link rel="stylesheet" href="style.css"> 
 </head>
 <?php     include("header.php"); ?>
@@ -52,8 +53,9 @@ for($i=0; $i < count($authorKey); $i++){
 var_export($hasFulltext);
 echo "<br>".$publishYear."<br>";
 for($i=0; $i < count($lan); $i++){
-    echo $lan[$i]."<br>";
+    echo $lan[$i]." ";
 }
+echo "<br>";
 var_export($publicScanB);
 
 $authorKeySave=json_encode($authorKey);
@@ -84,11 +86,11 @@ if (array_key_exists('button', $_POST)) {
 }
 
 ?>
-
+<!-- 
     <form method="post">
         <input type="submit" name="button"
                 class="button" value="Save this Book" />
-</form>
+</form> -->
 
 </div>
 <?php include("footer.php"); ?>
