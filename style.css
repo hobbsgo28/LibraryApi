@@ -85,9 +85,9 @@ body {
     background-color: #ddd; 
     color: black;
 } */
-/* .header-right {
+.header-right {
     float: right;
-} */
+}
 
 footer {
   align-items: center;
