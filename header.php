@@ -2,8 +2,8 @@
   <a class="button" href="index.php">Homepage</a>
   <div class="header-right">
 
-    <a class="button" href="login.php">Login</a>
-    <a class="button" href="register.php">Register</a>
+    <a class="button" href="search.php">Search</a>
+    <a class="button" href="showData.php">View Books</a>
 
 
   </div>

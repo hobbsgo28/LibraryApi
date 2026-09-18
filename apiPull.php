@@ -10,7 +10,15 @@
 <?php
 include("conn.php");
 
-$endpoint_url= "https://openlibrary.org/search.json?q=purple&page=1&limit=1";
+if(isset($_POST["search"])){
+    $keyword = $_POST["keyword"];
+    $year = $_POST["year"];
+    // $email = $_POST["emailAddr"];
+    // $pass = $_POST["pass"];
+}
+// echo $keyword.$publishYear;
+
+$endpoint_url= "https://openlibrary.org/search.json?q=".$keyword."&first_publish_year=".$year."&page=1&limit=1";
 // $endpoint_url= "library.json";
 
 $response= file_get_contents($endpoint_url);
@@ -42,7 +50,6 @@ for($i=0; $i < count($data['docs'][0]['language']); $i++){
     $lan[]= $data['docs'][0]['language'][$i];
 }
 
-//TODO:figure out boolean operations, returning 1 when true but nothing when false
 $publicScanB= $data['docs'][0]['public_scan_b'];
 
 echo $bookKey."<br>".$title."<br>".$ebookAccess."<br>".$coverEditionKey."<br>".$coverI."<br>".$editionCount."<br>"; 
@@ -70,14 +77,13 @@ $lanSave=json_encode($lan);
         if (!$query) {
     die("Prepare failed: " . $conn->error);
 }
-// key, title, subtitle, ebook_access, cover_edition_key, cover_i, edition_count, author_key, author_name
-//  has_fulltext, publish_year, language, public_scan_b
 
         $query->bind_param("ssssssissiisi", $bookKey, $title, $subtitle, $ebookAccess, $coverEditionKey, $coverI, $editionCount, 
         $authorKeySave, $authorNameSave, $hasFulltext, $publishYear, $lanSave, $publicScanB);
 
-        // $query -> execute();
+        $query -> execute();
 if (array_key_exists('button', $_POST)) {
+        // $query -> execute();
     if (!$query->execute()) {
         die("Execute failed: " . $query->error);
     } else {
@@ -86,8 +92,10 @@ if (array_key_exists('button', $_POST)) {
 }
 
 ?>
-<!-- 
-    <form method="post">
+    <!-- //TODO: figure out how to execute query only when button is pressed -->
+
+
+    <!-- <form method="post">
         <input type="submit" name="button"
                 class="button" value="Save this Book" />
 </form> -->

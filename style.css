@@ -141,3 +141,14 @@ td {
     border-radius: 5px;
 
 }
+form {
+    border-radius: 5px;
+    background-color: rgb(227, 232, 232);
+    padding: 15px;
+    width: 250px;
+    margin-bottom: 5px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
