@@ -1,0 +1,14 @@
+color palette
+
+#0a2d2e - border color
+#1c4e4f
+#436e6f
+#6a8e8f - header/footer background color, th background color
+#879693 
+#a49e97
+#deae9f - button color
+#efd7cf - td background color 
+#f7ebe7 -main background color
+#ffffff.
+
+https://colorkit.co/palette/0a2d2e-1c4e4f-436e6f-6a8e8f-879693-a49e97-deae9f-efd7cf-f7ebe7-ffffff/

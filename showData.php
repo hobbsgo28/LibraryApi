@@ -76,7 +76,7 @@ $dataqry->bind_result($id, $bookKey, $title, $subtitle, $ebookAccess, $coverEdit
         <!-- <th>Subtitle</th> -->
         <th>Ebook Access</th>
         <!-- <th>Cover Edition Key</th> -->
-        <th>Edition Count</th>
+        <!-- <th>Edition Count</th> -->
         <!-- <th>Author Key(s)</th> -->
         <th>Author Name(s)</th>
         <!-- <th>Has Fulltext</th> -->
@@ -98,7 +98,7 @@ $dataqry->bind_result($id, $bookKey, $title, $subtitle, $ebookAccess, $coverEdit
             <!-- <td> <?php echo $subtitle ?> </td> -->
             <td> <?php echo $ebookAccess ?> </td>
             <!-- <td> <?php echo $coverEditionKey ?> </td> -->
-            <td> <?php echo $editionCount ?> </td>
+            <!-- <td> <?php echo $editionCount ?> </td> -->
             <!-- <td> <?php echo $authorKey ?> </td> -->
             <td> <?php echo $authorName ?> </td>
             <!-- <td> <?php echo $hasFulltext ?> </td> -->

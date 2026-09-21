@@ -1,7 +1,7 @@
 body {
   /* color image repeat position */
   background: #ece3df url("images/backgroundbooks.webp") repeat fixed;
-  color: #0a3323;
+  color: #0a2d2e;
   display: flex;
   /* style weight size/height family */
   font: 20px  "Delius", "Arial";
@@ -12,18 +12,22 @@ body {
 .container-main{
   background-color: #ece3df;
   border-radius: 5px;
-  border: 1px solid #23314a;
+  border: 1px solid #0a2d2e;
   display: flex;
   flex-direction: row;
   min-height: 85%;
   /* margin-bottom: 0.5px; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 
 .header {
   align-items: center;
-  background-color: #a7ad89; 
+  background-color: #84adaf ; 
   border-radius: 5px;
-  border: 1px solid #23314a;
+  border: 1px solid #0a2d2e;
   justify-content: center;
   min-height: 10%;
   padding: 20px 10px 10px 10px; 
@@ -38,14 +42,14 @@ body {
 }
 .button {
   border-radius: 5px;
-  border: 1px solid #23314a;
-  background: linear-gradient(to bottom, #efe5e4, #e5c2bd);
-  background-color: #e5c2bd;
+  border: 1px solid #0a2d2e;
+  background: linear-gradient(to bottom, #efe5e4, #deae9f);
+  background-color: #deae9f;
   box-shadow:
     inset 0 1px #525252,
     0 4px 6px -1px rgb(0 0 0 / 0.1),
     0 2px 4px -2px rgb(0 0 0 / 0.1);
-  color: #0a3323;
+  color: #0a2d2e;
   cursor: pointer;
   float: left; 
   font: 18px/25px "Delius Unicase", "Arial";
@@ -63,7 +67,7 @@ body {
   transform: translateY(-2px); /*makes button jump */
 }
 .button:active{
-  background: linear-gradient(to bottom, #e5c2bd, #efe5e4); /* makes button look pressed in  */
+  background: linear-gradient(to bottom, #deae9f, #efe5e4); /* makes button look pressed in  */
   transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
   transform: translateY(0); /*makes button jump */
 }
@@ -85,17 +89,15 @@ body {
     background-color: #ddd; 
     color: black;
 } */
-.header-right {
-    float: right;
-}
+
 
 footer {
   align-items: center;
-  background-color: #a7ad89; 
-  border: 1px solid #23314a;
+  background-color: #84adaf; 
+  border: 1px solid #0a2d2e;
   border-radius: 5px;
   bottom: 0;
-  color: #0a3323;
+  color: #0a2d2e;
   display: flex;
   font: 15px "Delius Unicase", "Arial";
   height: 10%;
@@ -113,7 +115,7 @@ footer {
 }
 
 pre{ /*used to keep the whitespace in the footer text */
-  color: #0a3323;
+  color: #0a2d2e;
   font: 15px "Delius Unicase", "Arial";
 }
 
@@ -127,28 +129,29 @@ table {
 }
 
 th {
-    background-color:burlywood;
-    border: 2px solid black; 
+    background-color: #84adaf;
+    border: 2px solid #0a2d2e; 
     padding: 10px 30px 10px 30px;
     text-align: center;
     border-radius: 5px;
 } 
 td {
-    background-color: rgb(165, 195, 205); 
-    border: 2px solid black;
+    background-color: #efd7cf; 
+    border: 2px solid #0a2d2e;
     padding: 10px 30px 10px 30px;
     text-align: center; 
     border-radius: 5px;
 
 }
 form {
-    border-radius: 5px;
-    background-color: rgb(227, 232, 232);
-    padding: 15px;
-    width: 250px;
-    margin-bottom: 5px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
+  border-radius: 5px;
+  background-color: rgb(227, 232, 232);
+  border: 1px solid #0a2d2e;
+  padding: 15px;
+  width: 250px;
+  margin-bottom: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
