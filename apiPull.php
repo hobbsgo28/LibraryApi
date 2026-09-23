@@ -8,14 +8,35 @@
     <title>Library Search</title>
 
 <?php
+include("globals.php");
+if (isset($_GET["msg"])) {
+    switch ($_GET["msg"]) {
+        case 2:
+            echo $MSG_2;
+            break;
+        case 3:
+            echo $MSG_3;
+            break;
+        default:
+            echo $MSG_1;
+            break;
+    }
+}
+
 include("conn.php");
+
+$checkqry = "SELECT bookKey FROM openlibrary WHERE EXISTS (SELECT bookKey FROM openlibrary WHERE bookKey=?)";
+$checkqry = $conn->prepare($checkqry);
+//         if (!$checkqry) {
+//     die("Prepare failed: " . $conn->error);
+// }
 
 if(isset($_POST["search"])){
     $keyword = $_POST["keyword"];
     $year = $_POST["year"];
     // $email = $_POST["emailAddr"];
     // $pass = $_POST["pass"];
-}
+
 // echo $keyword.$publishYear;
 
 $endpoint_url= "https://openlibrary.org/search.json?q=".$keyword."&first_publish_year=".$year."&page=1&limit=1";
@@ -71,6 +92,13 @@ $lanSave=json_encode($lan);
 
 // echo $lanSave;
 
+$checkqry->bind_param("s", $bookKey); //error
+$checkqry->execute();
+
+$checkqry->bind_result($bookExists);
+$checkqry->fetch();
+
+    if(!$bookExists) {
         $query = "INSERT INTO openLibrary(bookKey, title, subtitle, ebook_access, cover_edition_key, cover_i, 
         edition_count, author_key, author_name, has_fulltext, publish_year, lan, public_scan_b) VALUES (?, ?, ?,?,?,?,?,?,?,?,?,?,?)";
         $query = $conn->prepare($query);
@@ -87,10 +115,13 @@ if (array_key_exists('button', $_POST)) {
     if (!$query->execute()) {
         die("Execute failed: " . $query->error);
     } else {
+        // header("Location: apiPull.php?msg=3");
         echo "Book saved successfully!";
     }
 }
+    }
 
+}
 ?>
     <!-- //TODO: figure out how to execute query only when button is pressed -->
 
