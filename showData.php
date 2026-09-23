@@ -49,8 +49,7 @@ include("conn.php");
 ?>
 
 <?php
-    // BookKey, title, subtitle, ebook_access, cover_edition_key, edition_count, author_key, author_name
-//  has_fulltext, publish_year, language
+//pulls the relevant data from the db
 $dataqry = "SELECT ID, bookKey, title, subtitle, ebook_access, cover_edition_key, 
         edition_count, author_key, author_name, has_fulltext, publish_year, lan FROM openLibrary";
 $dataqry = $conn->prepare($dataqry);
@@ -61,6 +60,7 @@ $dataqry = $conn->prepare($dataqry);
 $dataqry->execute();
 $dataqry->store_result();
 
+//binds the relevant data to local variables
 $dataqry->bind_result($id, $bookKey, $title, $subtitle, $ebookAccess, $coverEditionKey, $editionCount, 
         $authorKey, $authorName, $hasFulltext, $publishYear, $lan);
 ?>
@@ -68,16 +68,12 @@ $dataqry->bind_result($id, $bookKey, $title, $subtitle, $ebookAccess, $coverEdit
     <tr>
 
     <!-- // BookKey, title, subtitle, ebook_access, cover_edition_key, edition_count, author_key, author_name
-//  has_fulltext, publish_year, language
-//values not shown: cover_i, public_scan_b -->
+//  has_fulltext, publish_year, language -->
+<!-- creates the headers for the data that will be displayed -->
         <th>ID</th>
-        <!-- <th>Book Key</th> -->
         <th>Title</th>
         <!-- <th>Subtitle</th> -->
         <th>Ebook Access</th>
-        <!-- <th>Cover Edition Key</th> -->
-        <!-- <th>Edition Count</th> -->
-        <!-- <th>Author Key(s)</th> -->
         <th>Author Name(s)</th>
         <!-- <th>Has Fulltext</th> -->
         <th>Publish Year</th>
@@ -86,20 +82,17 @@ $dataqry->bind_result($id, $bookKey, $title, $subtitle, $ebookAccess, $coverEdit
     </tr>
 <?php
     
-        
+    // fetches all the data for all the rows
     while ($dataqry->fetch()) {
 ?>
         <tr> 
-            <!-- $id, $bookKey, $title, $subtitle, $ebookAccess, $coverEditionKey, $editionCount, 
+            <!-- $id, $title, $subtitle, $ebookAccess, 
         $authorKeySave, $authorNameSave, $hasFulltext, $publishYear, $lanSave -->
+        <!-- displays the data in rows -->
             <td> <?php echo $id ?> </td>
-            <!-- <td> <?php echo $bookKey  ?> </td> -->
             <td> <?php echo $title  ?> </td>
             <!-- <td> <?php echo $subtitle ?> </td> -->
             <td> <?php echo $ebookAccess ?> </td>
-            <!-- <td> <?php echo $coverEditionKey ?> </td> -->
-            <!-- <td> <?php echo $editionCount ?> </td> -->
-            <!-- <td> <?php echo $authorKey ?> </td> -->
             <td> <?php echo $authorName ?> </td>
             <!-- <td> <?php echo $hasFulltext ?> </td> -->
             <td> <?php echo $publishYear ?> </td>
@@ -109,7 +102,8 @@ $dataqry->bind_result($id, $bookKey, $title, $subtitle, $ebookAccess, $coverEdit
 
             <!-- <td> <form style="all: unset;" action="updateInfo.php?userId=<?=$userId?>" method="post">
                 <button type="submit" name="updateInfo" value="<?= $userId ?>" >Update Information</button> </form> </td>
-            <td> <form style="all: unset;" action="removeAcct.php?userId=<?=$userId?>" method="post">
+            this is used to delete data, will be usefull later
+                <td> <form style="all: unset;" action="removeAcct.php?userId=<?=$userId?>" method="post">
                 <button type="submit" name="removeAcct" value="<?= $userId ?>" >Delete Account</button> </form> </td> -->
         </tr>
 

@@ -7,7 +7,7 @@
 <div class="container-main">
     <title>Library Search</title>
 
-
+<!-- creates a form for data search, and uses POST to send data to apiPull.php -->
     <form action="apiPull.php" method="POST"> 
     Keyword: <input type="text" name="keyword" id="keyword" > <br>
     Publish Year: <input type="int" name="year" id="year" > <br>
