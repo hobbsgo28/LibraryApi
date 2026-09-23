@@ -16,7 +16,7 @@ $MSG_3 = "Book saved successfully!<br>";
 // $MSG_11 = "Test Fail 2";
 // $MSG_12 = "Information Updated<br>";
 // $MSG_13 = "Unable to Update Information<br>";
-// $MSG_14 = "Unable to Access Page<br>";
+$MSG_14 = "Unable to Access Page<br>";
 // $MSG_15 = "Logout Successfull<br>";
 
 ?>

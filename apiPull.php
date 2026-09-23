@@ -27,15 +27,13 @@ include("conn.php");
 
 $checkqry = "SELECT bookKey FROM openlibrary WHERE EXISTS (SELECT bookKey FROM openlibrary WHERE bookKey=?)";
 $checkqry = $conn->prepare($checkqry);
-//         if (!$checkqry) {
-//     die("Prepare failed: " . $conn->error);
-// }
 
+
+//stores the values from the search.php form
 if(isset($_POST["search"])){
     $keyword = $_POST["keyword"];
     $year = $_POST["year"];
-    // $email = $_POST["emailAddr"];
-    // $pass = $_POST["pass"];
+
 
 // echo $keyword.$publishYear;
 
@@ -48,6 +46,7 @@ $data = json_decode($response, true);
 
 echo "<br>";
 
+//assigns the json values to a local variable 
 $bookKey= $data['docs'][0]['key'] ?? "";
 $title = $data['docs'][0]['title'] ?? ""; 
 $subtitle= $data['docs'][0]['subtitle'] ?? ""; 
@@ -56,6 +55,7 @@ $coverEditionKey= $data['docs'][0]['cover_edition_key'] ?? "";
 $coverI= $data['docs'][0]['cover_i'] ?? "";
 $editionCount= $data['docs'][0]['edition_count'] ?? "";
 
+//iteriates for multiple values
 for($i=0; $i < count($data['docs'][0]['author_key']); $i++) {
     $authorKey[]=$data['docs'][0]['author_key'][$i];
 }
@@ -73,6 +73,7 @@ for($i=0; $i < count($data['docs'][0]['language']); $i++){
 
 $publicScanB= $data['docs'][0]['public_scan_b'];
 
+//prints all the data pulled from the json file
 echo $bookKey."<br>".$title."<br>".$ebookAccess."<br>".$coverEditionKey."<br>".$coverI."<br>".$editionCount."<br>"; 
 for($i=0; $i < count($authorKey); $i++){
     echo $authorKey[$i]."<br>";
@@ -86,19 +87,19 @@ for($i=0; $i < count($lan); $i++){
 echo "<br>";
 var_export($publicScanB);
 
+//the variables with multiple values as a list are turned into a json data type for database entry 
 $authorKeySave=json_encode($authorKey);
 $authorNameSave=json_encode($authorName);
 $lanSave=json_encode($lan);
 
-// echo $lanSave;
-
-$checkqry->bind_param("s", $bookKey); //error
+//preps query for checking if book is already in the database
+$checkqry->bind_param("s", $bookKey); 
 $checkqry->execute();
 
 $checkqry->bind_result($bookExists);
 $checkqry->fetch();
 
-    if(!$bookExists) {
+    if(!$bookExists) { // if a book is not already in the data base it will add to db
         $query = "INSERT INTO openLibrary(bookKey, title, subtitle, ebook_access, cover_edition_key, cover_i, 
         edition_count, author_key, author_name, has_fulltext, publish_year, lan, public_scan_b) VALUES (?, ?, ?,?,?,?,?,?,?,?,?,?,?)";
         $query = $conn->prepare($query);
@@ -110,15 +111,17 @@ $checkqry->fetch();
         $authorKeySave, $authorNameSave, $hasFulltext, $publishYear, $lanSave, $publicScanB);
 
         $query -> execute();
-if (array_key_exists('button', $_POST)) {
-        // $query -> execute();
-    if (!$query->execute()) {
-        die("Execute failed: " . $query->error);
-    } else {
-        // header("Location: apiPull.php?msg=3");
-        echo "Book saved successfully!";
-    }
-}
+
+//attempts to only add book to databse if button is pressed
+// if (array_key_exists('button', $_POST)) {
+//         // $query -> execute();
+//     if (!$query->execute()) {
+//         die("Execute failed: " . $query->error);
+//     } else {
+//         // header("Location: apiPull.php?msg=3");
+//         echo "Book saved successfully!";
+//     }
+// }
     }
 
 }

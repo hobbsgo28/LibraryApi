@@ -1,6 +1,6 @@
 <html>
 <?php
-// include("unauthAccess.php");
+include("unauthAccess.php");
 
 $host = "localhost";
 $user = "root";
