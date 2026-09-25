@@ -3,7 +3,7 @@
         <?php include("fonts.php"); ?>   
         <link rel="stylesheet" href="style.css"> 
 </head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 
     <?php 
     session_start();
@@ -11,6 +11,7 @@
     ?>
 <body>
     <div class="container-main">
+
 
 <!-- 
 <div class="container">
@@ -93,7 +94,7 @@ $dataqry->bind_result($id, $bookKey, $title, $subtitle, $ebookAccess, $coverEdit
             <td> <?php echo $title  ?> </td>
             <!-- <td> <?php echo $subtitle ?> </td> -->
             <td> <?php echo $ebookAccess ?> </td>
-            <td> <?php echo $authorName ?> </td>
+            <td> <?php echo str_replace(array('"'), ' ', str_replace(array('[',']'), '', $authorName)) ?> </td>
             <!-- <td> <?php echo $hasFulltext ?> </td> -->
             <td> <?php echo $publishYear ?> </td>
             <!-- <td> <?php echo $lan ?> </td> -->

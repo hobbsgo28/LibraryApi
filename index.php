@@ -34,6 +34,10 @@ include("globals.php");
 }
 
 ?>
+
+<p>
+  Welcome to my Library API service
+</p>
 </div>
 
 <body>

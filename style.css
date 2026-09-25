@@ -120,28 +120,27 @@ pre{ /*used to keep the whitespace in the footer text */
 }
 
 table {
-    overflow-x: auto;
-    display: flex; 
-    align-items: center; 
-    justify-content: center; 
-    /* background-color: white;
-    border-radius: 5px; */
+  overflow-x: auto;
+  display: flex; 
+  align-items: center; 
+  justify-content: center; 
+  /* background-color: white;
+  border-radius: 5px; */
 }
 
 th {
-    background-color: #84adaf;
-    border: 2px solid #0a2d2e; 
-    padding: 10px 30px 10px 30px;
-    text-align: center;
-    border-radius: 5px;
+  background-color: #84adaf;
+  border: 2px solid #0a2d2e; 
+  padding: 10px 30px 10px 30px;
+  text-align: center;
+  border-radius: 5px;
 } 
 td {
-    background-color: #efd7cf; 
-    border: 2px solid #0a2d2e;
-    padding: 10px 30px 10px 30px;
-    text-align: center; 
-    border-radius: 5px;
-
+  background-color: #efd7cf; 
+  border: 2px solid #0a2d2e;
+  padding: 10px 30px 10px 30px;
+  text-align: center; 
+  border-radius: 5px;
 }
 form {
   border-radius: 5px;

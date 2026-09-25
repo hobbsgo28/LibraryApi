@@ -4,6 +4,7 @@
 
     <a class="button" href="search.php">Search</a>
     <a class="button" href="showData.php">View Books</a>
+    <a class="button" href="searchSelect.php">Search Select Data</a>
 
 
   </div>
