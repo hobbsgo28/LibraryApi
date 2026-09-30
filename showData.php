@@ -6,7 +6,7 @@
     <!-- <meta name="viewport" content="width=device-width, initial-scale=1.0"> -->
 
     <?php 
-    session_start();
+    // session_start();
     include("header.php");
     ?>
 <body>
@@ -33,15 +33,6 @@ include("conn.php");
 //         case 4:
 //             echo $MSG_4;
 //             break;
-//         case 6:
-//             echo $MSG_6;
-//             break;
-//         case 8:
-//             echo $MSG_8;
-//             break;
-//         case 12:
-//             echo $MSG_12;
-//             break;
 //         default:
 //             echo $MSG_1;
 //             break;
@@ -54,7 +45,10 @@ include("conn.php");
 $dataqry = "SELECT ID, bookKey, title, subtitle, ebook_access, cover_edition_key, 
         edition_count, author_key, author_name, has_fulltext, publish_year, lan FROM openLibrary";
 $dataqry = $conn->prepare($dataqry);
-        
+
+if (!$dataqry) {
+    die("Prepare failed: " . $conn->error);
+}
 // } else { // no access
 //     header("Location: index.php?msg=14");
 // }

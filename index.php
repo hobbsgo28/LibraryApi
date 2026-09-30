@@ -11,7 +11,7 @@
 
 
     <?php 
-    session_start();
+    // session_start();
     include("header.php");
 
     ?>
@@ -34,6 +34,9 @@ include("globals.php");
 }
 
 ?>
+
+
+
 
 <p>
   Welcome to my Library API service

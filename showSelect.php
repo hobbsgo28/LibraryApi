@@ -5,7 +5,7 @@
 </head>
 
     <?php 
-    session_start();
+    // session_start();
     include("header.php");
     ?>
 <body>
@@ -41,9 +41,7 @@ if (isset($_GET['title'])){
     $title = runSQL($sql);
     echo $title."<br>";
 }
-// else{
-//     $sql = "select * from users where name='$name'";
-// }
+
 if (isset($_GET['ebook'])){
     $show_ebook = $_GET['ebook'];
     $sql ="select ebook_access from openlibrary where id='$book_id'";
@@ -74,4 +72,26 @@ if (isset($_GET['languages'])){
 
 
 
+
 ?>
+<form action="createjson.php"> 
+    Book ID: <input type="int" name="id" value="<?=$book_id ?>"  >
+    <input type="submit" name="search">
+
+</form>
+
+<p> Create a JSON File </p>
+  <!-- <button type="submit" value= <?=$book_id ?>>Submit</button> -->
+    header("Location: index.php?msg=15");
+    <a class="button" href="createjson.php?id=<?=$book_id ?>">Create JSON File</a>
+<!-- 
+    <form action="createjson.php">
+        Book ID: <input type="int" name="id" value=<?php $book_id?> required >
+        Title: <input type="checkbox" name='title' value="title"> 
+        EBookAccess: <input type="checkbox" name='ebook' value="Ebook"> 
+        Author(s): <input type="checkbox" name='author' value="author"> 
+        Publish Year: <input type="checkbox" name='year' value="year"> 
+        Languages: <input type="checkbox" name='languages' value="languages"> 
+    <input type="Submit" value="Create JSON File" name="json">
+
+</form> -->
