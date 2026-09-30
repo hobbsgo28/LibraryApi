@@ -7,6 +7,7 @@
     <?php 
     // session_start();
     include("header.php");
+    include("globals.php");
     ?>
 <body>
     <div class="container-main">
@@ -74,15 +75,7 @@ if (isset($_GET['languages'])){
 
 
 ?>
-<form action="createjson.php"> 
-    Book ID: <input type="int" name="id" value="<?=$book_id ?>"  >
-    <input type="submit" name="search">
 
-</form>
-
-<p> Create a JSON File </p>
-  <!-- <button type="submit" value= <?=$book_id ?>>Submit</button> -->
-    header("Location: index.php?msg=15");
     <a class="button" href="createjson.php?id=<?=$book_id ?>">Create JSON File</a>
 <!-- 
     <form action="createjson.php">

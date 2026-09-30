@@ -8,6 +8,8 @@
     <?php 
     // session_start();
     include("header.php");
+    include("globals.php");
+
     ?>
 <body>
     <div class="container-main">
@@ -28,16 +30,16 @@
 // include("globals.php");
 include("conn.php");
 
-// if (isset($_GET["msg"])) {
-//     switch ($_GET["msg"]) {
-//         case 4:
-//             echo $MSG_4;
-//             break;
-//         default:
-//             echo $MSG_1;
-//             break;
-//     }
-// }
+if (isset($_GET["msg"])) {
+    switch ($_GET["msg"]) {
+        case 4:
+            echo $MSG_4;
+            break;
+        default:
+            echo $MSG_1;
+            break;
+    }
+}
 ?>
 
 <?php

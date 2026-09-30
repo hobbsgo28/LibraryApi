@@ -57,7 +57,11 @@ $jsonData= json_encode($data, JSON_PRETTY_PRINT);
 // echo $jsonData;
 $filename = str_replace(" ", "_", $title).".json";
 // echo $filename;
-// $filepath = "/json_files/".$filename;
-file_put_contents($filename, $jsonData);
+$filepath = "json_files/".$filename;
+echo $filepath;
 
+file_put_contents($filepath, $jsonData, FILE_USE_INCLUDE_PATH);
+
+header("Location: showData.php?msg=4");
 ?>
+

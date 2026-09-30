@@ -5,8 +5,8 @@ include("unauthAccess.php");
 
 $MSG_1 = "Unknown Error Detected<br>";
 $MSG_2 = "Book Already in Database<br>";
-$MSG_3 = "Book saved successfully!<br>";
-// $MSG_4 = "Successful Login<br>";
+$MSG_3 = "Book Saved Successfully!<br>";
+$MSG_4 = "JSON Created Successfully<br>";
 // $MSG_5 = "Unable to Login<br>";
 // $MSG_6 = "Account Successfully Deleted<br>";
 // $MSG_7 = "Unable to Delete Account<br>";
